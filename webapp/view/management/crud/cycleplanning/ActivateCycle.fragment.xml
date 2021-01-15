@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="activecycle_dialog"
+		beforeClose="onCloseActive"
+		title="{i18n>ActiveCycle.dialog.title} {plannedCycles>Unit}">
+		
+		<f:SimpleForm
+			editable="false"
+			adjustLabelSpan="false"
+			layout="ResponsiveGridLayout">
+			<f:content>
+				<Label text="{i18n>ActiveCycle.simpleform.label1}" required="true"/>
+				<Input 
+					id="activecycle_product" 
+					value ="{plannedCycles>Product}"
+					enabled="false">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>ActiveCycle.simpleform.label2}" required="true"/>
+				<Input 
+					id="activecycle_cantproduct" 
+					type="Number"
+					placeholder="{i18n>ActiveCycle.placeholder1}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>ActiveCycle.simpleform.label3}" required="true"/>
+				<Input 
+					id="activecycle_unit" 
+					value ="{plannedCycles>UnitStartProduct}"
+					enabled="false">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>	
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				type="Accept" 
+				icon="sap-icon://save" 
+				text="{i18n>Generic.ok}" 
+				press=".onActive"/>
+		</beginButton>
+		
+		<endButton>
+			<Button 
+				type="Reject" 
+				icon="sap-icon://cancel"
+				text="{i18n>Generic.cancel}" 
+				press=".onCloseActive"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

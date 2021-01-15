@@ -1,0 +1,108 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm
+			editable="true"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false"
+			singleContainerFullSize="false"
+			title="{i18n>UnitTypeDisplay.simpleform.title}">
+			<f:content>
+				
+				<core:Title text="{i18n>UnitTypeDisplay.simpleform.title1}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label1}"/>
+				<Input id="updateunittype_type" value="{/UnitType}" >
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label2}"/>
+				<Input id="updateunittype_unitarea" value="{/UnitArea}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label3}"/>
+				<Input id="updateunittype_symbolarea" value="{/SymbolArea}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label4}"/>
+				<Input id="updateunittype_startproduct" value="{/StartProduct}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label5}"/>
+				<Input id="updateunittype_udstartproduct" value="{/UnitStartProduct}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label6}"/>
+				<Input id="updateunittype_symbolstartproduct" value="{/SymbolStartProduct}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label7}"/>
+				<Input id="updateunittype_product" value="{/EndProduct}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label8}"/>
+				<Input id="updateunittype_unitproduction" value="{/UnitProduction}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label9}"/>
+				<Input id="updateunittype_symbolproduction" value="{/SymbolProduction}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				
+				<core:Title text="{i18n>UnitTypeDisplay.simpleform.title2}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label10}"/>
+				<Input id="updateunittype_density" value="{/Density}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label11}"/>
+				<Input id="updateunittype_unitdensity" value="{/UnitDensity}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label12}"/>
+				<Input id="updateunittype_symboldensity" value="{/SymbolDensity}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label13}"/>
+				<DatePicker id="updateunittype_startdate" value="{/StartDate}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</DatePicker>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label14}"/>
+				<DatePicker id="updateunittype_enddate" value="{/EndDate}">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S10" />
+					</layoutData>
+				</DatePicker>
+				
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+	
+</core:FragmentDefinition>

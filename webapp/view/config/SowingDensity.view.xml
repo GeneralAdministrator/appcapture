@@ -1,0 +1,78 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.config.SowingDensity"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>SowingDensity.page.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<headerContent>
+			<Toolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button 
+						type="Transparent" 
+						icon="sap-icon://add" 
+						press="navCreateSowingDensity"/>
+				</OverflowToolbar>
+			</Toolbar>
+		</headerContent>
+		
+		<f:GridList
+			id="sowingdensity_grid"
+			headerText="{i18n>SowingDensity.gridlist.title}"
+			items="{
+				path:'/ListDensitys',
+				sorter: {
+					path:'Product',
+					group: true
+				}
+			}"
+			class="sapUiResponsiveContentPadding">
+			
+			<f:customLayout>
+				<grid:GridBoxLayout boxMinWidth="18rem" boxWidth="18rem"/>
+			</f:customLayout>
+			
+			<f:GridListItem
+				type="Active"
+				highlight="{
+					path:'Standar',
+					formatter: '.formatter.densityStatus'
+				}">
+				<VBox height="100%">
+					<VBox class="sapUiSmallMargin">
+						<layoutData>
+							<FLexItemdata growFactor="1" shrinkFactor="1"/>
+						</layoutData>
+						<ObjectIdentifier title="{Station}" wrapping="true"/>
+						<Title text="{i18n>SowingDensity.gridlist.text3}" wrapping="true"/>
+						<Text text="{Density} {UnitProduct}" />
+					</VBox>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button 
+							type="Accept" 
+							icon="{
+								path: 'Standar',
+								formatter:'.formatter.densityStatusIcon'
+							}" 
+							visible="{
+								path:'Standar',
+								formatter: '.formatter.visibleButtonDefault'
+							}"
+							press="onUpdate"/>
+					</OverflowToolbar>
+				</VBox>
+			</f:GridListItem>
+			
+		</f:GridList>
+		
+	</Page>
+	
+</mvc:View>

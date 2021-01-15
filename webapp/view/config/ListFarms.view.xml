@@ -1,0 +1,78 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.config.ListFarms"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:dnd="sap.ui.core.dnd"
+	xmlns:dnd-grid="sap.f.grid"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>ListFarms.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<headerContent>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button 
+					type="Transparent" 
+					icon="sap-icon://add" 
+					press=".onNavFarm"/>
+			</OverflowToolbar>
+		</headerContent>
+		
+		<f:GridList
+			id="listfarms_gridlist"
+			headerText="{i18n>listfarms.gridlist.title}"
+			class="sapUiResponsiveContentPadding"
+			growing="true"
+			growingThreshold="10"
+			items="{
+				path:'/Farms'
+			}">
+			
+			<f:customLayout>
+				<grid:GridBoxLayout boxMinWidth="18rem" boxWidth="18rem"/>
+			</f:customLayout>
+			
+			<f:GridListItem
+				highlight="{
+					path:'Default',
+					formatter:'.formatter.defaultStatus'
+				}"
+				type="Active">
+				
+				<VBox height="100%">
+					<VBox class="sapUiSmallMargin">
+						<layoutData>
+							<FlexItemData growFactor="1" shrinkFactor="0"/>
+						</layoutData>
+						<Title text="{FarmName}" wrapping="true"/>
+						<Text text="{i18n>ListFarms.gridlist.column2}: {CantUnit}" wrapping="true"/>
+						<Text text="{i18n>ListFarms.gridlist.column3}: {Default}" wrapping="true"/>
+					</VBox>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button 
+							type="Accept" 
+							icon="{
+								path: 'Default',
+								formatter: '.formatter.iconDefault'
+							}" 
+							visible="{
+								path:'Default',
+								formatter: '.formatter.visibleButtonDefault'
+							}"
+							press=".onUpdate"/>
+					</OverflowToolbar>
+				</VBox>
+				
+			</f:GridListItem>
+			
+		</f:GridList>
+		
+	</Page>
+	
+</mvc:View>

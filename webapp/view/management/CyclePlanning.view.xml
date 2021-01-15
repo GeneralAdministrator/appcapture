@@ -1,0 +1,105 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.CyclePlanning"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:unified="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>CyclePlanning.page.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<Table
+			id="cycleplanning_table"
+			sticky="ColumnHeaders"
+			growing="true"
+			alternateRowColors="true"
+			items="{plannedCycles>/PlannedCycles/}"
+			class="sapUiResponsiveContentPadding">
+			
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="{i18n>CyclePlanning.table.title}"/>
+					<ToolbarSpacer/>
+					<Button type="Transparent" icon="sap-icon://sort"/>
+					<Button type="Transparent" icon="sap-icon://filter"/>
+					<Button type="transparent" icon="sap-icon://group-2"/>
+					<Button 
+						type="Transparent" 
+						icon="sap-icon://add"
+						press=".onNavToCreateCycle"/>
+				</OverflowToolbar>
+			</headerToolbar>
+			
+			<columns>
+				<Column
+					hAlign="End"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>CyclePlanning.table.column1}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>CyclePlanning.table.column2}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>CyclePlanning.table.column3}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>CyclePlanning.table.column4}"/>
+				</Column>
+				<Column
+					hAlign="End"
+					minScrennWidth="Small"
+					demandPopin="true"
+					width="4rem"/>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true"
+					width="4rem"/>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true"
+					width="4rem"/>
+			</columns>
+			
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier title="{plannedCycles>StartDate}"/>
+						<Text text="{plannedCycles>Unit}"/>
+						<Text text="{plannedCycles>UnitType}"/>
+						<Text text="{plannedCycles>Product}"/>
+						<Button 
+							type="Accept" 
+							icon="sap-icon://activate"
+							press=".onOpenActive"/>
+						<Button 
+							type="Emphasized" 
+							icon="sap-icon://edit"
+							press=".onOpenUpdate"/>
+						<Button 
+							type="Reject" 
+							icon="sap-icon://delete"
+							press=".onDelete"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+			
+		</Table>
+		
+	</Page>
+	
+</mvc:View>

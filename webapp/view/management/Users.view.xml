@@ -1,0 +1,85 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.Users"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>Users.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<Table	
+			id="users_table"
+			sticky="ColumnHeaders"
+			growing="true"
+			items="{/Users}"
+			class="sapUiResponsiveContentPadding">
+			
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="{i18n>Users.table.title}"/>
+					<ToolbarSpacer/>
+					<Button type="Transparent" icon="sap-icon://sort"/>
+					<Button type="Transparent" icon="sap-icon://filter"/>
+					<Button type="Transparent" icon="sap-icon://group-2"/>
+					<Button type="Transparent" icon="sap-icon://add" press=".openCreateUser"/>
+				</OverflowToolbar>
+			</headerToolbar>
+			
+			<columns>
+				<Column
+					hAlign="End"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Users.table.column1}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Users.table.column2}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Users.table.column3}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Users.table.column4}"/>
+				</Column>
+				<Column
+					hAlign="Initial"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Users.table.column5}"/>
+				</Column>
+			</columns>
+
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier title="{User}"/>
+						<Text text="{Type}"/>
+						<Text text="{Name}"/>
+						<Text text="{Surname}"/>
+						<ObjectListItem 
+							class="fontStatus sapMObjectNumber sapMObjectNumberText"
+							number="{Statu}"
+							numberState="{
+								path:'Statu',
+								formatter:'.formatter.userStatus'
+							}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+			
+		</Table>
+		
+	</Page>
+	
+</mvc:View>

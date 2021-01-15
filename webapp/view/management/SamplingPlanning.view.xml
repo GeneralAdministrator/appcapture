@@ -1,0 +1,56 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.SamplingPlanning"
+	xmlns="sap.m"
+	xmlns:unified="sap.ui.unified"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>SamplingPlanning.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<VBox class="sapUiSmallMargin">
+			
+			<PlanningCalendar 
+				id="samplingplanning" 
+				rows="{
+					path:'/SamplingPlannings',
+					sorter:{
+						path:'Name',
+						group: true
+					}
+				}">
+				
+				<toolbarContent>
+					<Title text="Titulo"/>
+					<Button type="Transparent" icon="sap-icon://add" press="openDialog"/>
+				</toolbarContent>
+				
+				<rows>
+					
+					<PlanningCalendarRow title="{Name}" appointments="{Appointments}">
+						
+						<appointments>
+							<unified:CalendarAppointment
+								startDate="{StartDate}"
+								endDate="{EndDate}"
+								title="{UnitName}"
+								text="{Product}"
+								type="Type02"
+								tentative="false">
+							</unified:CalendarAppointment>
+						</appointments>
+						
+					</PlanningCalendarRow>
+					
+				</rows>
+		
+			</PlanningCalendar>
+			
+		</VBox>
+
+	</Page>
+	
+</mvc:View>

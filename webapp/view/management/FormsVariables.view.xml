@@ -1,0 +1,59 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.FormsVariables"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>FormsVariables.title}" 
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+
+		<content>
+			<FlexBox 
+				renderType="Bare"
+				wrap="Wrap"
+				justifyContent="Center"
+				width="100%">
+				
+				<FlexBox
+					renderType="Bare"
+					justifyContent="Center"
+					width="40rem">
+					<mvc:XMLView 
+						id="variables" 
+						viewName="data.capture.for.sap.view.management.Variables"/>
+				</FlexBox>
+				
+				<FlexBox 
+					direction="Column"
+					justifyContent="Center" 
+					alignItems="Center"
+					width="1rem"
+					class="sapUiTinyMarginBeginEnd">
+					<Button
+						class="sapUiTinyMarginBottom"
+						icon="sap-icon://navigation-right-arrow"
+						tooltip="Move to selected"
+						press=".moveToForms"/>
+					<Button
+						icon="sap-icon://navigation-left-arrow"
+						tooltip="Move to available"
+						press=".moveToVariables"/>
+				</FlexBox>
+				
+				<FlexBox
+					renderType="Bare"
+					justifyContent="Center"
+					width="40rem">
+					<mvc:XMLView 
+						id="forms"
+						viewName="data.capture.for.sap.view.management.Forms"/>
+				</FlexBox>
+				
+			</FlexBox>
+		</content>
+		
+	</Page>
+	
+</mvc:View>

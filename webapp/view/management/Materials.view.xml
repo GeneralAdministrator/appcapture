@@ -1,0 +1,65 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.Materials"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>Materials.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<Table
+			id="materials_table"
+			sticky="ColumnHeaders"
+			growing="true"
+			growingThreshold="50"
+			items="{/d/results}"
+			class="sapUiResponsiveContentPadding">
+			
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="{i18n>Materials.table.title}"/>
+					<ToolbarSpacer/>
+					<Button type="Transparent" icon="sap-icon://sort"/>
+					<Button type="Transparent" icon="sap-icon://filter"/>
+					<Button type="Transparent" icon="sap-icon://request"/>
+					<Button type="Transparent" icon="sap-icon://synchronize" press=".loadModel"/>
+				</OverflowToolbar>
+			</headerToolbar>
+			
+			<columns>
+				<Column
+					hAlign="End"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Materials.table.column1}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Materials.table.column2}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>Materials.table.column3}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem >
+					<cells>
+						<ObjectIdentifier title="{Matnr}"/>
+						<Text text="{Maktg}"/>
+						<Text text="{Meins}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+			
+		</Table>
+		
+	</Page>
+	
+</mvc:View>

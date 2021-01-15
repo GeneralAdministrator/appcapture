@@ -1,0 +1,22 @@
+{
+    "NavigationList":[
+    	{
+    		"Text":"Finca(s)"
+    	},
+    	{
+    		"Text":"Tipos de unidades productivas"
+    	},
+    	{
+    		"Text":"Productos"	
+    	},
+    	{
+    		"Text":"Temporadas"
+    	},
+    	{
+    		"Text":"Densidad de siembra"	
+    	},
+		{
+			"Text":"Variables y formularios"
+		}
+    ]
+}

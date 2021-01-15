@@ -1,0 +1,217 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.config.CreateSubproducts"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>CreateSubproducts.page.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+		
+		<l:ResponsiveSplitter defaultPane="default">
+			
+			<l:PaneContainer>
+				
+				<l:SplitPane>
+					
+					<Page showHeader="false">
+						
+						<Panel headerText="{i18n>CreateSubproducts.panel.title}">
+							<Select id="createsubproducts_unittypes" 
+								items="{/UnitTypes}"
+								change=".onCancel"
+								width="18rem">
+								<layoutData>
+									<l:GridData span="XL6 L8 M8 S10"/>
+								</layoutData>
+								<core:Item key="{IdType}" text="{Type}"/>
+							</Select>
+						</Panel>
+						
+						<content>
+
+							<f:SimpleForm
+								editable="true"
+								layout="ResponsiveGridLayout"
+								adjustLabelSpan="false"
+								title="{i18n>CreateSubproducts.form.title}"
+								labelSpanL="4" emptySpanL="8" columnsL="0"
+								labelSpanM="3" emptySpanM="7" columnsM="0">
+								<f:content>
+									<Label text="{i18n>CreateSubproducts.form.label0}" required="true"/>
+									<Select id="createsubproducts_forms" items="{/Forms}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+										<core:Item key="{IdForm}" text="{Form}"/>
+									</Select>
+									<Label text="{i18n>CreateSubproducts.form.label1}" required="true"/>
+									<Input id="createsubproducts_form1"
+										placeholder="{i18n>CreateSubproducts.placeholder.label1}"
+										tooltip="{i18n>CreateSubproducts.placeholder.label1}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Input>
+									<Label text="{i18n>CreateSubproducts.form.label2}" required="true"/>
+									<Input id="createsubproducts_form2" 
+										placeholder="{i18n>CreateSubproducts.placeholder.label2}"
+										tooltip="{i18n>CreateSubproducts.placeholder.label2}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Input>
+									<Label text="{i18n>CreateSubproducts.form.label3}" required="true"/>
+									<Input id="createsubproducts_form3"
+										placeholder="{i18n>CreateSubproducts.placeholder.label3}"
+										tooltip="{i18n>CreateSubproducts.placeholder.label3}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Input>
+									<Label text="{i18n>CreateSubproducts.form.label4}" required="true"/>
+									<Input id="createsubproducts_form4"	
+										placeholder="{i18n>CreateSubproducts.placeholder.label4}"
+										tooltip="{i18n>CreateSubproducts.placeholder.label4}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Input>
+									<Label text="{i18n>CreateSubproducts.form.label5}" required="true"/>
+									<Input id="createsubproducts_form5"
+										placeholder="{i18n>CreateSubproducts.placeholder.label5}"
+										tooltip="{i18n>CreateSubproducts.placeholder.label5}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Input>
+									<Label text="{i18n>CreateSubproducts.form.label6}" required="true"/>
+									<Input id="createsubproducts_form6"
+										placeholder="{i18n>CreateSubproducts.placeholder.label6}"
+										tooltip="{i18n>CreateSubproducts.placeholder.label6}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Input>
+								</f:content>
+							</f:SimpleForm>
+
+						</content>
+						
+						<footer>
+							<OverflowToolbar>
+								<ToolbarSpacer/>
+								<Button type="Accept" 
+									icon="sap-icon://add" 
+									text="{i18n>Generic.add}"
+									tooltip="{i18n>Generic.add}"
+									press=".onAdd"/>
+								<Button type="Reject" 
+									icon="sap-icon://cancel" 
+									text="{i18n>Generic.cancel}"
+									tooltip="{i18n>Generic.cancel}"
+									press=".onCancel"/>
+							</OverflowToolbar>
+						</footer>
+						
+					</Page>
+					
+				</l:SplitPane>
+				
+				<l:SplitPane>
+					<Page showHeader="false">
+						
+						<Panel>
+							<f:SimpleForm
+								title="{i18n>CreateSubproducs.endprodut.title}"
+								layout="ColumLayout">
+								<f:content>
+									<Label text="{i18n>CreateSubproducs.endprodut.simpleform1}"/>
+										<Text text="{subproduct>/Subproducts/0/Product}"/>
+									<Label text="{i18n>CreateSubproducs.endprodut.simpleform2}"/>
+										<Text text="{subproduct>/Subproducts/0/UnitProduct}"/>
+									<Label text="{i18n>CreateSubproducs.endprodut.simpleform3}"/>
+										<Text text="{subproduct>/Subproducts/0/SymbolProduct}"/>
+									<Label text="{i18n>CreateSubproducs.endprodut.simpleform4}"/>
+										<Text text="{subproduct>/Subproducts/0/Form}"/>
+								</f:content>
+							</f:SimpleForm>
+						</Panel>
+						
+						<Table
+							id="createsubproducts_table"
+							class="sapUiResponsiveContentPadding"
+							sticky="ColumnHeaders"
+							growing="true"
+							growingThreshold="30"
+							items="{subproduct>/Subproducts}">
+							
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="{i18n>CreateSubproducts.table.title}"/>
+									<ToolbarSpacer/>
+									<Button 
+										type="Accept" 
+										icon="sap-icon://save"
+										tooltip="{Generic.ok}"
+										press=".onSave"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							
+							<columns>
+								<Column 
+									hAlign="End"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateSubproducts.table.column1}"/>
+								</Column>
+								<Column 
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateSubproducts.table.column2}"/>
+								</Column>
+								<Column 
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateSubproducts.table.column3}"/>
+								</Column>
+								<Column
+									hAlign="End"
+									minScreenWidth="Small"
+									demandPopin="true"
+									width="4rem"/>
+							</columns>
+							
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{subproduct>Subproduct}"/>
+										<Text text="{subproduct>UnitSubproduct}"/>
+										<Text text="{subproduct>SymbolSubproduct}"/>
+										<Button 
+											type="Reject" 
+											icon="sap-icon://delete"
+											tooltip="{Generic.delete}"
+											press=".onDelete"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							
+						</Table>
+					</Page>
+				</l:SplitPane>
+				
+			</l:PaneContainer>
+			
+		</l:ResponsiveSplitter>
+		
+	</Page>
+	
+	
+</mvc:View>

@@ -1,0 +1,46 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.launchpad.Management"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" 
+    		header="{i18n>Launchpad.create.units}"
+        	press="onNavToProductionUnits">
+            <TileContent>
+                <ImageContent src="sap-icon://add-product"/>
+            </TileContent>
+        </GenericTile>
+        
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+            header="{i18n>Launchpad.create.cycles}"
+            press="onNavToProductionCycles">
+            <TileContent>
+                <ImageContent src="sap-icon://circle-task"/>
+            </TileContent>
+        </GenericTile>
+        
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+            header="{i18n>Launchpad.create.cycleplanning}"
+            press="onNavToCyclePlanning">
+            <TileContent>
+                <ImageContent src="sap-icon://activity-assigned-to-goal"/>
+            </TileContent>
+        </GenericTile>
+        
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+        	header="{i18n>Launchpad.create.sampling.planning}"
+        	press=".onNavToSamplingPlanning">
+        	<TileContent>
+        		<ImageContent src="sap-icon://activity-individual"/>
+        	</TileContent>
+        </GenericTile>
+        
+        <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+        	header="{i18n>Launchpad.create.materials}"
+        	press=".onNavToMaterials">
+            <TileContent>
+                <ImageContent src="sap-icon://supplier"/>
+            </TileContent>
+        </GenericTile>
+
+</mvc:View>

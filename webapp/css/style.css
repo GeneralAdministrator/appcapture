@@ -1,0 +1,31 @@
+.loginBackground{
+	background-image:url("../pictures/background/shrimp-335841_1920.jpg");
+	background-size:100% 100%;
+}
+
+.loginFlexBox {
+    border-radius:1rem;
+	background:RGBA(6, 6, 6, 0.4);
+}
+
+html[dir="ltr"] .flexBox{
+	margin-left:0.5rem;
+}
+
+.loginIn {
+	color: white;
+	font-size: 1.5rem;
+}
+
+.loginLabel{
+	color: #ffffff;
+}
+
+.loginButton > .sapMBtnInner{
+	border-radius:1rem;
+}
+
+.fontStatus .sapMObjectNumber .sapMObjectNumberText {
+	font-size:.875rem;
+	font-weight: bold;
+}

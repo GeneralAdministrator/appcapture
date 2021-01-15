@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="self_management"
+        title="{i18n>Self.title}">
+
+        <content>
+            <Wizard class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
+                <WizardStep title="{i18n>Self.title1}" validated="true">
+                    <RadioButtonGroup>
+                        <RadioButton text="{i18n>Self.radiobutton.user}"/>
+                        <RadioButton text="{i18n>Self.radiobutton.password}"/>
+                    </RadioButtonGroup>
+                </WizardStep>
+                <WizardStep title="{i18n>Self.title2}" validated="true">
+                <l:VerticalLayout>
+                    <Label text="{i18n>Self.question1}"/>
+                    <Input width="20rem"/>
+                    <Label text="{i18n>Self.question2}"/>
+                    <Input width="20rem"/>
+                </l:VerticalLayout>
+                </WizardStep>
+                <WizardStep title="{i18n>Self.title3}">
+                    <Text text="Prueba3"/>
+                </WizardStep>
+            </Wizard>
+        </content>
+
+        <beginButton>
+            <Button text="{i18n>Self.ok}"/>
+        </beginButton>
+
+        <endButton>
+        <Button text="{i18n>Self.close}" press=".onCloseDialog"/>
+        </endButton>
+
+    </Dialog>
+</core:FragmentDefinition>

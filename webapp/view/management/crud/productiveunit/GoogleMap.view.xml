@@ -1,0 +1,35 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.crud.productiveunit.GoogleMap"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+	height="100%">
+
+	<Page
+		title="{i18n>}"
+		titleAligement="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+
+		<headerContent>
+			<Toolbar >
+				<Button 
+					type="Transparent"
+					icon="sap-icon://add" 
+					press=".openDialog"/>
+			</Toolbar>
+		</headerContent>
+		
+		<FlexBox
+			id="googlemap"
+			renderType="Bare"
+			width="100%"
+			height="100%"/>
+
+	</Page>
+	
+	
+</mvc:View>

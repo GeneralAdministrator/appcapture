@@ -1,0 +1,83 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="create_cycle"
+		title="{i18n>CreateCycle.form.title}"
+		afterOpen="loadAllModel"
+		contentWidth="400px">
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm
+				editable="true"
+				layout="ResponsiveGridLayout"
+				adjustLabelSpan="false">
+				<f:content>
+					<Label text="{i18n>CreateCycle.form.label6}" required="true"/>
+					<DatePicker 
+						id="createcycle_startdate" 
+						valueFormat="yyyy-MM-dd" 
+						displayFormat="long"
+						class="sapUiSmallMarginBottom">
+						<layoutData>
+							<l:GridData span="XL6 L8 M8 S10"/>
+						</layoutData>
+					</DatePicker>
+					<Label text="{i18n>CreateCycle.form.label1}" required="true"/>
+					<Select id="createcycle_unittype" items="{/UnitTypes}" change="changeUnitTypes">
+						<core:Item key="{IdType}" text="{Type}"/>
+						<layoutData>
+							<l:GridData span="XL6 L8 M8 S10"/>
+						</layoutData>
+					</Select>
+					<Label text="{i18n>CreateCycle.form.label2}" required="true"/>
+					<ComboBox id="createcycle_listunit" items="{/ProductiveCycles}" selectionChange="changeProductionUnits">
+						<core:Item key="{IdUnit}" text="{UnitName}"/>
+						<layoutData>
+							<l:GridData span="XL6 L8 M8 S10"/>
+						</layoutData>
+					</ComboBox>
+					<Label text="{i18n>CreateCycle.form.label4}" required="true"/>
+					<MultiComboBox id="createcycle_listproducts" items="{/Products}" selectionFinish="selectionFinishProducts">
+						<core:ListItem key="{IdProduct}" text="{Product}" additionalText="{IdForm}"/>
+						<layoutData>
+							<l:GridData span="XL6 L8 M8 S10"/>
+						</layoutData>
+					</MultiComboBox>
+					<Label text="{i18n>CreateCycle.form.label5}" required="true"/>
+					<MultiComboBox id="createcycle_seasons" 
+						items="{
+							path:'/Seasons',
+							sorter:{
+								path:'Product',
+								group:true
+							}}">
+						<core:ListItem key="{IdStation}" text="{Station}"/>
+						<layoutData>
+							<l:GridData span="XL6 L8 M8 S10"/>
+						</layoutData>
+					</MultiComboBox>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		
+		<beginButton>
+			<Button 
+				type="Accept"
+				text="{i18n>Generic.ok}" 
+				icon="sap-icon://save" 
+				tooltip="{i18n>Generic.ok}"
+				press=".onSave"/>
+		</beginButton>
+		<endButton>
+			<Button 
+				type="Reject"
+				text="{i18n>Generic.cancel}" 
+				icon="sap-icon://cancel" 
+				tooltip="{i18n>Generic.cancel}"
+				press=".closeDialog"/>
+		</endButton>
+		
+	</Dialog>
+</core:FragmentDefinition>

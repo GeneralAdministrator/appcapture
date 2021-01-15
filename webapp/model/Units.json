@@ -1,0 +1,56 @@
+{
+	"Units": {
+		"Area":[
+			{
+				"Unit":"Centímetro cuadrado",
+				"Symbol":"cm2"
+			},
+			{
+				"Unit":"Metro cuadrado",
+				"Symbol":"m2"
+			},
+			{
+				"Unit":"Kilómetro cuadrado",
+				"Symbol":"km2"
+			},
+			{
+				"Unit":"Pulgadas cuadradas",
+				"Symbol":"in2"
+			},
+			{
+				"Unit":"Pie cuadrado",
+				"Symbol":"ft2"
+			},
+			{
+				"Unit":"Hectárea",
+				"Symbol":"ha"
+			},
+			{
+				"Unit":"Acre",
+				"Symbol":"acre"
+			}
+		],
+		"Production":[
+			{
+				"Unit":"Kilogramo",
+				"Symbol":"kg"
+			},
+			{
+				"Unit":"Libra",
+				"Symbol":"lb"
+			},
+			{
+				"Unit":"Toneladas",
+				"Symbol":"ton"
+			},
+			{
+				"Unit":"Saco",
+				"Symbol":"Saco"
+			},
+			{
+				"Unit":"Millardo",
+				"Symbol":"Millardo"
+			}
+		]
+	}
+}

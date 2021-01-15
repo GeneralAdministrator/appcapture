@@ -1,0 +1,87 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="create_user"
+		beforeOpen=".generatePassword"
+		title="{i18n>CreateUser.title}"
+		contentWidth="400px">
+		
+		<f:SimpleForm
+			editable="true"
+			layout="ResponsiveGridLayout">
+			<f:content>
+				<Label text="{i18n>CreateUser.form.label1}"/>
+				<Input id="createUser_name" placeholder="{i18n>CreateUser.form.placeholder1}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateUser.form.label2}" required="true"/>
+				<Input id="createUser_surname" placeholder="{i18n>CreateUser.form.placeholder2}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateUser.form.label3}" required="true"/>
+				<Select 
+					id="createUser_type"
+					items="{/User/AccessType}"
+					selectedKey="Administrador">
+					<core:Item key="{Key}" text="{Type}"/>
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Select>
+				<Label text="{i18n>CreateUser.form.label4}" required="true"/>
+				<Input id="createUser_user" placeholder="{i18n>CreateUser.form.placeholder3}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateUser.form.label5}" required="true"/>
+				<Input id="createUser_email" type="Email" placeholder="{i18n>CreateUser.form.placeholder4}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateUser.form.label6}" required="true"/>
+				<Input id="createUser_password" editable="false">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateUser.form.label7}" required="true"/>
+				<Select 
+					id="createUser_status" 
+					items="{/User/Status}"
+					selectedKey="Activo">
+					<core:Item key="{Key}" text="{Statu}"/>
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Select>
+			</f:content>	
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				type="Accept"
+				text="{i18n>Generic.ok}" 
+				icon="sap-icon://save" 
+				press=".onSave"/>
+		</beginButton>
+		<endButton>
+			<Button
+				type="Reject"
+				text="{i18n>Generic.cancel}" 
+				icon="sap-icon://cancel" 
+				press=".closeCreateUser"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="closecycle_dialog">
+		
+		<f:SimpleForm
+			editable="false"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false">
+			<f:content>
+				
+				<Label text="{i18n>CloseCycle.form.label1}"/>
+				<Input enabled="false">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S8"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CloseCycle.form.label2}"/>
+				<DatePicker>
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S8"/>
+					</layoutData>
+				</DatePicker>
+				<Label text="{i18n>CloseCycle.form.label3}"/>
+				<DatePicker>
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S8"/>
+					</layoutData>
+				</DatePicker>
+				<Label text="{i18n>CloseCycle.form.label4}"/>
+				<Input>
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S8"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CloseCycle.form.label5}"/>
+				<Input enabled="false">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S8"/>
+					</layoutData>
+				</Input>
+					
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				text="{i18n>Generic.ok}" 
+				icon="sap-icon://save" 
+				press=".onSave"/>
+		</beginButton>
+		<endButton>
+			<Button 
+				text="{i18n>Generic.cancel}" 
+				icon="sap-icon://cancel" 
+				press=".closeCloseCycle"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

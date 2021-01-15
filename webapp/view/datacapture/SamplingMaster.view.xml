@@ -1,0 +1,78 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.datacapture.SamplingMaster"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<f:DynamicPage toggleHeaderOnTitleClick="false">
+		
+		<f:content>
+			<VBox fitContainer="true">
+				
+				<OverflowToolbar class="sapFDynamicPageAlignContent">
+					<Select id="sampligmaster_unittypes" items="{/ProductionUnits}">
+						<core:Item key="{IdType}" text="{UnitType}"/>
+					</Select>
+					<ToolbarSpacer/>
+					<OverflowToolbarButton icon="sap-icon://sort" type="Transparent"/>
+					<OverflowToolbarButton icon="sap-icon://filter" type="Transparent"/>
+					<OverflowToolbarButton icon="sap-icon://group-2" type="Transparent"/>
+				</OverflowToolbar>
+				
+				<Table 
+					id="samplingmaster_table"
+					inset="false"
+					class="sapFDynamicPageAlignContent"
+					growing="true"
+					growingThreshold="10"
+					sticky="ColumnHeaders"
+					items="{
+						path:'sampling>/ProductionUnits',
+						sorter:{
+							path:'Date',
+							group:true
+						}
+					}"
+					width="auto">
+					
+					<columns>
+						<Column
+							hAlign="Center"
+							minScreenWidth="Small"
+							demandPopin="true">
+								<Text text="{i18n>SamplingMaster.simpleform.label2}"/>
+						</Column>
+						<Column
+							hAlign="Center"
+							minScreenWidth="Small"
+							demandPopin="true">
+								<Text text="{i18n>SamplingMaster.simpleform.label3}"/>
+						</Column>
+						<Column
+							hAlign="Center"
+							minScreenWidth="Small"
+							demandPopin="true">
+								<Text text="{i18n>SamplingMaster.simpleform.label4}"/>
+						</Column>
+					</columns>
+					
+					<items>
+						<ColumnListItem type="Navigation" press="onListItemPress">
+							<cells>
+								<ObjectIdentifier title="{sampling>UnitName}"/>
+								<Text text="{sampling>Product}"/>
+								<Text text="{sampling>Name} {sampling>Surname}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+					
+				</Table>
+				
+			</VBox>
+		</f:content>
+		
+	</f:DynamicPage>
+	
+</mvc:View>

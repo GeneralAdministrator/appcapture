@@ -1,0 +1,120 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.ProductionUnitsMain"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>ProductionUnitsMain.page.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+		
+		<IconTabBar
+			id="productiounitsmain_icontabbar"
+			select=".onFilterSelect"
+			expandable="false"
+			class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter
+					showAll="true"
+					text="{i18n>ProductionUnitsMain.icontabfilter.title1}"
+					count="{productionUnits>/ProductionUnits/CountAll}"
+					key="All">
+				</IconTabFilter>
+				<IconTabSeparator/>
+				<IconTabFilter
+					icon="sap-icon://status-in-process"
+					iconColor="Positive"
+					text="{i18n>ProductionUnitsMain.icontabfilter.title2}"
+					count="{productionUnits>/ProductionUnits/CountActive}"
+					key="Activas">
+					
+				</IconTabFilter>
+				<IconTabFilter
+					icon="sap-icon://status-negative"
+					iconColor="Critical"
+					text="{i18n>ProductionUnitsMain.icontabfilter.title3}"
+					count="{productionUnits>/ProductionUnits/CountMant}"
+					key="Mantenimiento">
+					
+				</IconTabFilter>
+				<IconTabFilter
+					icon="sap-icon://status-inactive"
+					iconColor="Negative"
+					text="{i18n>ProductionUnitsMain.icontabfilter.title4}"
+					count="{productionUnits>/ProductionUnits/CountInactive}"
+					key="Inactivas">
+					
+				</IconTabFilter>
+			</items>
+			
+			<content>
+				
+				<Table
+					id="productionunitsmain_table"
+					alternateRowColors="true"
+					class="sapUiResponsiveContentPadding"
+					growing="true"
+					items="{productionUnits>/ProductionUnits/Units}">
+					
+					<headerToolbar>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button type="Transparent" icon="sap-icon://sort"/>
+							<Button type="Transparent" icon="sap-icon://filter"/>
+							<Button type="Transparent" icon="sap-icon://group-2"/>
+							<Button type="Transparent" icon="sap-icon://add" press=".confirmRegisterType"/>
+						</OverflowToolbar>
+					</headerToolbar>
+					
+					<columns>
+						<Column
+							hAlign="End"
+							minScreenWidth="Small"
+							demandPopin="true">
+							<Text text="{i18n>ProductionUnitsMain.table.column1}"/>
+						</Column>
+						<Column
+							hAlign="Center"
+							minScreenWidth="Small"
+							demandPopin="true">
+							<Text text="{i18n>ProductionUnitsMain.table.column2}"/>
+						</Column>
+						<Column
+							hAlign="Center"
+							minScreenWidth="Small"
+							demandPopin="true">
+							<Text text="{i18n>ProductionUnitsMain.table.column3}"/>
+						</Column>
+						<Column
+							hAlign="Center"
+							minScreenWidth="Small"
+							demandPopin="true">
+							<Text text="{i18n>ProductionUnitsMain.table.column4}"/>
+						</Column>
+					</columns>
+					
+					<items>
+						<ColumnListItem type="Active" press="onNavDetails">
+							<cells>
+								<ObjectIdentifier title="{productionUnits>TypeName}"/>
+								<Text text="{productionUnits>UnitType}"/>
+								<Text text="{productionUnits>Product}"/>
+								<ObjectStatus text="{productionUnits>Statu}" 
+									state="{
+										path:'productionUnits>Statu',
+										formatter:'.formatter.productionUnitsStatus'
+									}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+					
+				</Table>
+				
+			</content>
+			
+		</IconTabBar>
+		
+	</Page>
+	
+</mvc:View>

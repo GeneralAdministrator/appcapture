@@ -1,0 +1,74 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="createVariable"
+		title="{i18n>CreateVariable.title}">
+		<f:SimpleForm
+			editable="true"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false"
+			labelSpanXL="4" emptySpanXL="8" columnsXL="0"
+			labelSpanL="4" emptySpanL="8" columnsL="0"
+			labelSpanM="2" emptySpanM="10" columnsM="0"
+			labelSpanS="12" emptySpanS="12">
+			<f:content>
+				<Label text="{i18n>CreateVariable.form.label1}" 
+					required="true" 
+					wrapping="true"/>
+				<Input id="createVariable_variable" placeholder="{i18n>CreateVariable.placeholder.label1}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateVariable.form.label2}" 
+					required="true" 
+					wrapping="true"/>
+				<Input id="createVariable_unit" 
+					placeholder="{i18n>CreateVariable.placeholder.label2}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateVariable.form.label3}" 
+					required="true" 
+					wrapping="true"/>
+				<Input id="createVariable_min" 
+					placeholder="{i18n>CreateVariable.placeholder.label3}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateVariable.form.label4}" 
+					required="true" 
+					wrapping="true"/>
+				<Input id="createVariable_max" 
+					placeholder="{i18n>CreateVariable.placeholder.label4}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				type="Accept"
+				text="{i18n>Generic.ok}" 
+				icon="sap-icon://save" 
+				press=".onSave"/>
+		</beginButton>
+		<endButton>
+			<Button 
+				type="Reject"
+				text="{i18n>Generic.cancel}" 
+				icon="sap-icon://cancel" 
+				press=".closeCreateVariable"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

@@ -1,0 +1,80 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.Variables"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:dnd="sap.ui.core.dnd"
+	xmlns:mvc="sap.ui.core.mvc"
+	height="100%">
+	
+	<Table
+		id="table"
+		class="sapUiResponsiveMargin"
+		mode="SingleSelectMaster"
+		sticky="ColumnHeaders"
+		growing="true"
+		growingThreshold="10"
+		beforeOpenContextMenu=".onBeforeOpenContextMenu"
+		items="{
+			path:'/Variables',
+			filters: {
+				path: 'Rank', 
+				operator: 'EQ', 
+				value1: '0'
+			}
+		}"
+		width="auto">
+		
+		<contextMenu>
+			<MenuItem 
+				text="{i18n>Variables.table.contextmenu.menu}"
+				press=".moveToForms"/>
+		</contextMenu>
+		
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="{i18n>Variables.table.title}"/>
+				<ToolbarSpacer/>
+					<Button type="Transparent" icon="sap-icon://sort"/>
+					<Button type="Transparent" icon="sap-icon://filter"/>
+					<Button type="Transparent" icon="sap-icon://group-2"/>
+					<Button type="Transparent" icon="sap-icon://add" press=".openCreateVariable"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		
+		<columns>
+			<Column
+				hAlign="End"
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="12rem">
+				<Text text="{i18n>Variables.table.column1}"/>
+			</Column>
+			<Column
+				hAlign="Center"
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>Variables.table.column2}"/>
+			</Column>
+		</columns>
+		
+		<dragDropConfig>
+			<dnd:DragInfo
+				groupName="variables"
+				sourceAggregation="items"/>
+			<dnd:DropInfo
+				groupName="formularios"
+				drop=".onDropVariables"/>
+		</dragDropConfig>
+		
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier title="{Variable}"/>
+					<Text text="{Unit}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+
+	</Table>
+	
+</mvc:View>

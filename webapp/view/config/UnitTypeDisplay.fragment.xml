@@ -1,0 +1,54 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<VBox class="sapUiSmallMargin">
+		
+		<f:SimpleForm
+			editable="false"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false"
+			singleContainerFullSize="false"
+			title="{i18n>UnitTypeDisplay.simpleform.title}">
+			<f:content>
+				
+				<core:Title text="{i18n>UnitTypeDisplay.simpleform.title1}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label1}"/>
+				<Text text="{/UnitType}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label2}"/>
+				<Text text="{/UnitArea}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label3}"/>
+				<Text text="{/SymbolArea}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label4}"/>
+				<Text text="{/StartProduct}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label5}"/>
+				<Text text="{/UnitStartProduct}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label6}"/>
+				<Text text="{/SymbolStartProduct}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label7}"/>
+				<Text text="{/EndProduct}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label8}"/>
+				<Text text="{/UnitProduction}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label9}"/>
+				<Text text="{/SymbolProduction}"/>
+				
+				<core:Title text="{i18n>UnitTypeDisplay.simpleform.title2}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label10}"/>
+				<Text text="{/Density}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label11}"/>
+				<Text text="{/UnitDensity}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label12}"/>
+				<Text text="{/SymbolDensity}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label13}"/>
+				<Text text="{/StartDate}"/>
+				<Label text="{i18n>UnitTypeDisplay.simpleform.content.label14}"/>
+				<Text text="{/EndDate}"/>
+				
+			</f:content>
+		</f:SimpleForm>
+		
+	</VBox>
+	
+</core:FragmentDefinition>

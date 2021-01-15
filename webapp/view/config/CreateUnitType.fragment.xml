@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="create_unittype"
+		title="{i18n>CreateUnitType.title}"
+		afterOpen=".loadModelAreas">
+		
+		<f:SimpleForm
+			editable="false"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false">
+			<f:content>
+				<Label text="{i18n>CreateUnitType.simpleform.label1}" required="true"/>
+				<Input 
+					id="createunittype_unittype" 
+					valueStateText="Enter 50 symbols"
+					placeholder="{i18n>CreateUnitType.placeholder.label1}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateUnitType.simpleform.label2}" required="true"/>
+				<ComboBox 
+					id="createunittype_area"
+					showSecondaryValues= "true"
+					items="{
+						path:'/Areas',
+						sorter:{
+							path:'Magnituded',
+							group: true
+						}
+					}">
+					<core:ListItem key="{IdMagnitude}" text="{Unit}" additionalText="{Symbol}"/>
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</ComboBox>
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				text="{i18n>Generic.ok}" 
+				type="Accept"
+				icon="sap-icon://save" 
+				press=".onSave"/>
+		</beginButton>
+		
+		<endButton>
+			<Button 
+				text="{i18n>Generic.cancel}" 
+				type="Reject"
+				icon="sap-icon://cancel" 
+				press=".closeCreateUnitType"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

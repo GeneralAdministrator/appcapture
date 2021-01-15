@@ -1,0 +1,170 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.crud.cycleplanning.CreateCycle"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>CreateCycle.page.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<l:ResponsiveSplitter defaultPane="default">
+			
+			<l:PaneContainer>
+				
+				<l:SplitPane>
+					
+					<Page showHeader="false">
+						
+						<content>
+							<Panel headerText="{i18n>CreateCycle.panel.title}">
+									<Select id="createcycle_unittype" 
+										items="{/UnitTypes}" 
+										change=".changeUnitTypes"
+										width="15rem">
+										<core:Item key="{IdType}" text="{Type}"/>
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Select>
+							</Panel>
+							<f:SimpleForm
+								layout="ResponsiveGridLayout"
+								editable="true"
+								adjustLabelSpan="false"
+								title="{i18n>CreateCycle.simpleform.title}"
+								labelSpanL="4" emptySpanL="8" columnsL="0"
+								labelSpanM="4" emptySpanM="8" columnsM="0">
+								<f:content>
+									<Label text="{i18n>CreateCycle.simpleform.label1}" required="true"/>
+									<MultiComboBox id="createcycle_units" showSecondaryValues="true" items="{/ProductionUnits}">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+										<core:ListItem key="{IdUnit}" text="{UnitName}" additionalText="{Statu}"/>
+									</MultiComboBox>
+									<Label text="{i18n>CreateCycle.simpleform.label2}" required="true"/>
+									<Select id="createcycle_products" items="{/Products}" change="changeProduct">
+										<core:ListItem key="{IdProduct}" text="{Product}" additionalText="{IdForm}"/>
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Select>
+									<Label text="{i18n>CreateCycle.simpleform.label3}" required="true"/>
+									<DatePicker id="createcycle_startdate"
+										valueFormat="yyyy-MM-dd"
+										placeholder="{i18n>CreateCycle.placeholder.label3}"
+										displayFormat="long"
+										class="sapUiSmallMarginBottom"
+										change="changeDate">
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</DatePicker>
+									<Label text="{i18n>CreateCycle.simpleform.label4}" required="true"/>
+									<Select id="createcycle_seasons" items="{
+										path:'/Seasons',
+										sorter: {
+											path:'Product',
+											group: true
+										}
+									}">
+										<core:Item key="{IdStation}" text="{Station}"/>
+										<layoutData>
+											<l:GridData span="XL6 L8 M8 S10"/>
+										</layoutData>
+									</Select>
+								</f:content>
+							</f:SimpleForm>
+						</content>	
+						
+						<footer>
+							<OverflowToolbar>
+								<ToolbarSpacer/>
+								<Button 
+									type="Accept" 
+									icon="sap-icon://add" 
+									text="{i18n>CreateSowingDensity.footer.add}"
+									press=".onAdd"/>
+								<Button 
+									type="Reject" 
+									icon="sap-icon://cancel" 
+									text="{i18n>CreateSowingDensity.footer.cancel}"
+									press=".cleanTable"/>
+							</OverflowToolbar>
+						</footer>
+					</Page>
+					
+				</l:SplitPane>
+				
+				<l:SplitPane>
+					<Page showHeader="false">
+						<Table
+							id="createcycle_table"
+							sticky="ColumnHeaders"
+							growing="true"
+							items="{/Products}"
+							class="sapUiResponsiveContentPadding">
+							
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="{i18n>CreateCycle.table.title}"/>
+									<ToolbarSpacer/>
+									<Button type="Accept" icon="sap-icon://save" press="onSave"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							
+							<columns>
+								<Column
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateCycle.table.column1}"/>
+								</Column>
+								<Column
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateCycle.table.column2}"/>
+								</Column>
+								<Column
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateCycle.table.column3}"/>
+								</Column>
+								<Column hAlign="End"
+									minScreenWidth="Small"
+									demandPopin="true"
+									width="4rem"/>
+							</columns>
+							
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{Date}"/>
+										<Text text="{Product}"/>
+										<Text text="{Station}"/>
+										<Button 
+											type="Reject" 
+											icon="sap-icon://delete" 
+											press="onDelete"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							
+						</Table>
+					</Page>
+				</l:SplitPane>
+				
+			</l:PaneContainer>
+			
+		</l:ResponsiveSplitter>
+		
+	</Page>
+	
+</mvc:View>

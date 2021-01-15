@@ -1,0 +1,33 @@
+{
+    "User":{
+        "AccessType":[
+            {
+                "Type":"Administrador",
+                "Key":"Administrador"
+            },
+            {
+                "Type":"Supervisor",
+                "Key":"Supervisor"
+            },
+            {
+                "Type":"Usuario",
+                "Key":"Usuario"
+            }
+        ],
+
+        "Status":[
+            {
+                "Statu":"Activo",
+                "Key":"Activo"
+            },
+            {
+                "Statu":"Bloqueado",
+                "Key":"Bloqueado"
+            },
+            {
+                "Statu":"Inactivo",
+                "Key":"Inactivo"
+            }
+        ]
+    }
+}

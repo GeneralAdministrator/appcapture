@@ -1,0 +1,74 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="crateseasons_dialog"
+		afterOpen="loadProduct"
+		title="{i18n>CreateSeasons.dialog.title}">
+		
+		<f:SimpleForm
+			editable="false"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false">
+			<f:content>
+				
+				<label text="{i18n>CreateSeasons.simpleform.label1}" required="true"/>
+				<Select id="createseasons_product" items="{/ListProducts}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+					<core:ListItem key="{IdProduct}" text="{Product}" additionalText="{IdType}"/>
+				</Select>
+				<Label text="{i18n>CreateSeasons.simpleform.label2}" required="true"/>
+				<Input id="createseasons_seasons" placeholder="{i18n>CreateSeasons.placeholder.label1}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateSeasons.simpleform.label3}" required="true"/>
+				<DatePicker 
+					id="createseasons_startdate"
+					valueFormat="yyyy-MM-dd"
+					displayFormat="long"
+					class="sapUiSmallMarginBotton"
+					placeholder="{i18n>CreateSeasons.placeholder.label2}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</DatePicker>
+				<Label text="{i18n>CreateSeasons.simpleform.label4}" required="true"/>
+				<DatePicker 
+					id="createseasons_enddate"
+					valueFormat="yyyy-MM-dd"
+					displayFormat="long"
+					class="sapUiSmallMarginBotton"
+					placeholder="{i18n>CreateSeasons.placeholder.label3}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</DatePicker>
+				
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button
+				type="Accept"
+				text="{i18n>Generic.ok}"
+				icon="sap-icon://save"
+				press=".onSave"/>
+		</beginButton>
+		<endButton>
+			<Button
+				type="Reject"
+				text="{i18n>Generic.cancel}"
+				icon="sap-icon://cancel"
+				press="closeCreateSeasons"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

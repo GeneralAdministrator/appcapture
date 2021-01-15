@@ -1,0 +1,81 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.datacapture.SamplingDetail"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core">
+	
+	<ObjectPagelayout
+		id="samplingdetail_objectpagelayout"
+		showTitleInHeaderContent="true"
+		alwaysShowContentHeader="false"
+		preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true"
+		isChildPage="true"
+		upperCaseAnchorBar="false">
+		
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<actions>
+					<m:ToggleButton
+						text="Save"
+						type="Emphasized"
+						press="onEditToggleButtonPress"/>
+					<m:Button
+						text="Limpiar"
+						type="Transparent"
+						press="cleanForm"/>
+					<m:Button 
+						text="Registros" 
+						press="onNavToSummary"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		
+		<headerContent>
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="{sampling>Name} {sampling>Surname}"/>
+				</m:VBox>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="{sampling>UnitName}"/>
+				</m:VBox>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="{sampling>Date}"/>
+				</m:VBox>
+			</m:FlexBox>
+		</headerContent>
+		
+		<sections>
+			
+			<ObjectPageSection title="Captura de datos">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<form:SimpleForm
+								id="samplingdetail_simplefor"
+								layout="ResponsiveGridLayout"
+								editable="true">
+								<form:content>
+									
+								</form:content>
+							</form:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			
+		</sections>
+		
+		<footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="Aceptar" press="onSave"/>
+				<m:Button type="Reject" text="Cancelar" press="onEditToggleButtonPress"/>
+			</m:OverflowToolbar>
+		</footer>
+		
+	</ObjectPagelayout>
+	
+</mvc:View>

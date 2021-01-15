@@ -1,0 +1,54 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.config.UnitTypes"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:dnd="sap.ui.core.dnd"
+	xmlns:dnd-grid="sap.f.dnd"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>UnitTypes.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<headerContent>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Transparent" icon="sap-icon://add" press=".openCreateUnitType"/>
+			</OverflowToolbar>
+		</headerContent>
+		
+		<f:GridList
+			id="unittype_gridlist"
+			headerText="{i18n>UnitTypes.gridlist.title}"
+			class="sapUiResponsiveContentPadding"
+			growing="true"
+			growingThreshold="10"
+			items="{/UnitTypes}">
+			
+			<f:customLayout>
+				<grid:GridBoxLayout boxMinWidth="18rem" boxWidth="18rem"/>
+			</f:customLayout>
+			
+			<f:GridListItem
+				highlight="Information"
+				type="Active">
+				<VBox height="100%" justifyContent="SpaceBetween">
+					<VBox class="sapUiSmallMargin">
+						<layoutData>
+							<FlexItemData growFactor="1" shrinkFactor="0"/>
+						</layoutData>
+						<ObjectIdentifier title="{Type}" wrapping="true"/>
+						<Text text="{i18n>UnitTypes.gridlist.column2}: {Unit}" wrapping="true"/>
+						<Text text="{i18n>UnitTypes.gridlist.column3}: {Symbol}" wrapping="true"/>
+					</VBox>
+				</VBox>
+			</f:GridListItem>
+			
+		</f:GridList>
+		
+	</Page>
+	
+</mvc:View>

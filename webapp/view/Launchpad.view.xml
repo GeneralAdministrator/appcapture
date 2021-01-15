@@ -1,0 +1,46 @@
+<mvc:View
+    xmlns="sap.uxap"
+    xmlns:f="sap.f"
+    xmlns:l="sa.ui.layout"
+    xmlns:sb="data.capture.for.sap.sharedblocks.launchpad"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <ObjectPageLayout>
+    	
+        <sections>
+
+            <ObjectPageSection title="{i18n>Launchpad.home}">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <sb:Home/>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection title="{i18n>Launchpad.create}">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <sb:Management/>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection title="{i18n>Launchpad.capture}">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <sb:Capture/>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+        </sections>
+
+    </ObjectPageLayout>
+    
+</mvc:View>

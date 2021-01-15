@@ -1,0 +1,76 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.config.NormalValues"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>NormalValues.page.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<Table id="normalvalues_table"
+			growing="true"
+			sticky="ColumnHeaders"
+			class="sapUiResponsiveContentPadding">
+			
+			<headerToolbar>
+				
+				<OverflowToolbar>
+					<Title text="{i18n>NormalValues.table.title}"/>
+					<ToolbarSpacer/>
+					<Button id="normalvalues_edit" 
+						text="{i18n>NormalValues.button.edit}" 
+						type="Transparent"
+						press="onEdit"/>
+					<Button id="normalvalues_save" 
+						text="{i18n>NormalValues.button.save}" 
+						type="Transparent"
+						press="onSaveAll"/>
+					<Button id="normalvalues_cancel" 
+						text="{i18n>NormalValues.button.cancel}" 
+						type="Transparent"
+						press="onCancel"/>
+				</OverflowToolbar>
+				
+			</headerToolbar>
+			
+			<columns>
+				<Column hAlign="End"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>normalvalues.table.column1}"/>
+				</Column>
+				<Column hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>normalvalues.table.column2}"/>
+				</Column>
+				<Column hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>normalvalues.table.column3}"/>
+				</Column>
+				<Column hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>normalvalues.table.column4}"/>
+				</Column>
+			</columns>
+			
+			<items>
+				<ColumnListItem press="onSelect" type="Active">
+					<cells>
+						<ObjectIdentifier title="{normalValues>Variable}"/>
+						<Text text="{normalValues>Unit}"/>
+						<Text text="{normalValues>Min}"/>
+						<Text text="{normalValues>Max}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+			
+		</Table>
+		
+	</Page>
+	
+</mvc:View>

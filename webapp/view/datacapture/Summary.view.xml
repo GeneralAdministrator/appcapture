@@ -1,0 +1,16 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<f:DynamicPage toggleHeaderOnTitleClick="false">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Resumen de muestreo"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+	</f:DynamicPage>
+	
+</mvc:View>

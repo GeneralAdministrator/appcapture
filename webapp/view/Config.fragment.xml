@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+
+    <Popover
+        title="{i18n>Config.title}"
+        id="config_popover"
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+        placement="Bottom">
+    	
+    	<List 
+    		id="config_list" >
+    		<items>
+    			<StandardListItem title="Finca(s)"  press="onPressList" type="Active"/>
+    			<StandardListItem title="Tipos de unidades productivas"  press="onPressList" type="Active"/>
+    			<StandardListItem title="Variables y formularios" press="onPressList" type="Active"/>
+    			<StandardListItem title="Valores normales" press="onPressList" type="Active"/>
+    			<StandardListItem title="Tabla de equivalencias" press="onPressList" type="Active"/>
+    			<StandardListItem title="Productos"  press="onPressList" type="Active"/>
+    			<StandardListItem title="Temporadas"  press="onPressList" type="Active"/>
+    			<StandardListItem title="Densidad de siembra"  press="onPressList" type="Active"/>
+    			<StandardListItem title="Usuarios" press="onPressList" type="Active"/>
+    		</items>
+    	</List>
+    	
+    </Popover>
+
+</core:FragmentDefinition>

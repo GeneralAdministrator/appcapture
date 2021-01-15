@@ -1,0 +1,169 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.config.CreateSowingDensity"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	height="100%">
+	
+	<Page
+		id="sowingdensity_page"
+		title="{i18n>CreateSowingDensity.page.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<l:ResponsiveSplitter defaultPane="default">
+			<l:PaneContainer>
+				
+				<l:SplitPane>
+					
+					<Page showHeader="false">
+						
+						<Panel headerText="{i18n>CreateSowingDensity.panel.header}">
+							<Select 
+								id="createsowingdensity_products"
+								width="18rem" 
+								items="{/ListProducts}"
+								change="changeProduct">
+								<core:ListItem 
+									key="{IdProduct}" 
+									text="{Product}" 
+									additionalText="{IdType}"/>
+								<layoutData>
+									<l:GridData span="XL6 L8 M8 S10"/>
+								</layoutData>
+							</Select>
+						</Panel>
+						
+						<f:SimpleForm
+							title="{i18n>CreateSowingDensity.simpleform.title}"
+							editable="true"
+							layout="ResponsiveGridLayout"
+							adjustLabelSpan="false"
+							labelSpanL="4" emptySpanL="8" columnsL="0"
+							labelSpanM="4" emptySpanM="8" columnsM="0">
+							<f:content>
+								<Label text="{i18n>CreateSowingDensity.simpleform.column1}" required="true"/>
+								<Select id="createsowingdensity_seasons" items="{/ListSeasons}">
+									<core:Item key="{IdStation}" text="{Station}"/>
+									<layoutData>
+										<l:GridData span="XL6 L8 M8 S10"/>
+									</layoutData>
+								</Select>
+								<Label text="{i18n>CreateSowingDensity.simpleform.column2}" required="true"/>
+								<Input id="createsowingdensity_density"
+									placeholder="{i18n>CreateSowingDensity.placeholder.label2}">
+									<layoutData>
+										<l:GridData span="XL6 L8 M8 S10"/>
+									</layoutData>
+								</Input>
+								<Label text="{i18n>CreateSowingDensity.simpleform.column3}" required="true"/>
+								<Input id="createsowingdensity_uddensity"
+									placeholder="{i18n>CreateSowingDensity.placeholder.label3}">
+									<layoutData>
+										<l:GridData span="XL6 L8 M8 S10"/>
+									</layoutData>
+								</Input>
+								<Label text="{i18n>CreateSowingDensity.simpleform.column4}" required="true"/>
+								<Input id="createsowingdensity_symboldensity"
+									placeholder="{i18n>CreateSowingDensity.placeholder.label4}">
+									<layoutData>
+										<l:GridData span="XL6 L8 M8 S10"/>
+									</layoutData>
+								</Input>
+							</f:content>
+						</f:SimpleForm>
+						
+						<footer>
+							<OverflowToolbar>
+								<ToolbarSpacer/>
+								<Button 
+									type="Accept" 
+									icon="sap-icon://add" 
+									text="{i18n>CreateSowingDensity.footer.add}"
+									press="onAdd"/>
+								<Button 
+									type="Reject" 
+									icon="sap-icon://cancel" 
+									text="{i18n>CreateSowingDensity.footer.cancel}"
+									press="cleanForm"/>
+							</OverflowToolbar>
+						</footer>
+					</Page>
+						
+				</l:SplitPane>
+				
+				<l:SplitPane>
+					
+					<Page showHeader="false">
+						
+						<Table
+							id="createsdensity_table"
+							class="sapUiResponsiveContentPadding"
+							sticky="ColumnHeaders"
+							growing="true"
+							items="{/ListSeasons}">
+							
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="{i18n>CreateSowingDensity.table.title}"/>
+									<ToolbarSpacer/>
+									<Button 
+										type="Accept" 
+										icon="sap-icon://save" 
+										press="onSave"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							
+							<columns>
+								<Column
+									hAlign="End"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateSowingDensity.table.column1}"/>
+								</Column>
+								<Column
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateSowingDensity.table.column2}"/>
+								</Column>
+								<Column
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>CreateSowingDensity.table.column4}"/>
+								</Column>
+								<Column 
+									minScreenWidth="Small" 
+									demandPopin="true" 
+									width="4rem"/>
+							</columns>
+							
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{Season}"/>
+										<ObjectNumber number="{Density}"/>
+										<Text text="{SymbolDensity}"/>
+										<Button 
+											type="Reject" 
+											icon="sap-icon://delete" 
+											press="onDelete"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							
+						</Table>
+					</Page>
+
+				</l:SplitPane>
+				
+			</l:PaneContainer>
+		</l:ResponsiveSplitter>
+		
+	</Page>
+	
+</mvc:View>

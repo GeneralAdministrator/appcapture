@@ -1,0 +1,74 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="create_farm"
+		title="{i18n>CreateFarm.title}">
+		
+		<f:SimpleForm
+			editable="true"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false">
+			<f:content>
+				<Label text="{i18n>CreateFarm.simpleform.label1}" required="true" wrappipng="true"/>
+				<Input 
+					id="createfarm_name" 
+					placeholder="{i18n>CreateFarm.placeholder.label1}" 
+					tooltip="{i18n>CreateFarm.placeholder.label1}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateFarm.simpleform.label2}" required="true" wrappipng="true"/>
+				<Input 
+					id="createfarm_cantunit" 
+					placeholder="{i18n>CreateFarm.placeholder.label2}" 
+					tooltip="{i18n>CreateFarm.placeholder.label2}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateFarm.simpleform.label3}" required="true" wrappipng="true" visible="false"/>
+				<Input enabled="false" 
+					id="createfarm_lat" 
+					placeholder="{i18n>CreateFarm.placeholder.label3}" 
+					tooltip="{i18n>CreateFarm.placeholder.label3}"
+					visible="false">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CreateFarm.simpleform.label4}" required="true" wrappipng="true" visible="false"/>
+				<Input enabled="false" 
+					id="createfarm_lng" 
+					placeholder="{i18n>CreateFarm.placeholder.label4}" 
+					tooltip="{i18n>CreateFarm.placeholder.label4}"
+					visible="false">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				text="{i18n>Generic.ok}" 
+				type="Accept"
+				icon="sap-icon://save" 
+				press=".onSave"/>
+		</beginButton>
+		<endButton>
+			<Button 
+				text="{i18n>Generic.cancel}" 
+				type="Reject"
+				icon="sap-icon://cancel" 
+				press=".closeCreateFarm"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

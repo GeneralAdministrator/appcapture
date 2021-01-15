@@ -1,0 +1,33 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.config.Farm"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>Farm.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<headerContent>
+			<Toolbar>
+				<Button 
+					type="Transparent" 
+					icon="sap-icon://add"
+					press=".openCreateFarm"/>
+			</Toolbar>
+		</headerContent>
+		
+		<content>
+			<FlexBox
+			id="farm_googlemap"
+			renderType="Bare"
+			width="100%"
+			height="100%">
+				
+			</FlexBox>
+		</content>
+		
+	</Page>
+	
+</mvc:View>

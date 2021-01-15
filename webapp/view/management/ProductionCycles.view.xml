@@ -1,0 +1,129 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.ProductionCycles"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{i18n>ProductionCycles.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+
+		<content>
+			
+			<IconTabBar 
+				id="productioncycles_icontabfilter"
+				select=".onFilterSelect"
+				expandable="false"
+				class="sapUiResponsiveContentPadding">
+				
+				<items>
+				
+					<IconTabFilter
+						showAll="true"
+						text="{i18n>ProductionCycles.icontabfilter1}"
+						count="{productionCycles>/ProductionCycles/CountAll}"
+						key="All">
+					</IconTabFilter>
+					
+					<IconTabSeparator/>
+					
+					<IconTabFilter
+						icon="sap-icon://status-in-process"
+						iconColor="Positive"
+						count="{productionCycles>/ProductionCycles/CountInProduction}"
+						text="{i18n>ProductionCycles.icontabfilter2}"
+						key="En produccion">
+					</IconTabFilter>
+					
+					<IconTabFilter
+						icon="sap-icon://status-negative"
+						iconColor="Critical"
+						count="{productionCycles>/ProductionCycles/CountMant}"
+						text="{i18n>ProductionCycles.icontabfilter4}"
+						key="Mantenimiento">
+					</IconTabFilter>
+					
+					<IconTabFilter
+						icon="sap-icon://status-completed"
+						iconColor="Negative"
+						count="{productionCycles>/ProductionCycles/CountFinish}"
+						text="{i18n>ProductionCycles.icontabfilter5}"
+						key="Culminados">
+					</IconTabFilter>
+				
+				
+				</items>
+			
+				<content>
+					<Table
+						id="productioncycles_table"
+						sticky="ColumnHeaders"
+						growing="true"
+						items="{productionCycles>/ProductionCycles/Cycles}"
+						alternateRowColors="true"
+						class="sapUiResponsiveContentPadding">
+							<headerToolbar>
+								<OverflowToolbar>
+									<ToolbarSpacer/>
+									<Button type="Transparent" icon="sap-icon://sort"/>
+									<Button type="Transparent" icon="sap-icon://filter"/>
+									<Button type="Transparent" icon="sap-icon://group-2"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column 
+									hAlign="End"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>ProductionCycles.table.column1}"/>
+								</Column>
+								<Column 
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>ProductionCycles.table.column2}"/>
+								</Column>
+								<Column 
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>ProductionCycles.table.column3}"/>
+								</Column>
+								<Column 
+									hAlign="Center"
+									minScreenWidth="Small"
+									demandPopin="true">
+									<Text text="{i18n>ProductionCycles.table.column5}"/>
+								</Column>
+								<Column hAlign="End"    minScreenWidth="Small" demandPopin="true" width="4rem"/>
+							</columns>
+							<items>
+								<ColumnListItem type="Active" press="onNavCycleSummary">
+									<cells>
+										<ObjectIdentifier title="{productionCycles>UnitName}"/>
+										<Text text="productionCycles>{UnitType}"/>
+										<Text text="{productionCycles>StartProduct}"/>
+										<Text text="{productionCycles>Statu}"/>
+										<Button 
+											type="Reject" 
+											visible="{
+												path:'productionCycles>Statu',
+												formatter:'.formatter.visibleButtonCloseCycle'
+											}"
+											icon="sap-icon://complete" 
+											tooltip="Cerrar ciclo"
+											press=""/>
+									</cells>
+							</ColumnListItem>
+						</items>
+				</Table>
+			</content>
+			
+			</IconTabBar>
+		
+		</content>
+		
+	</Page>
+	
+</mvc:View>

@@ -1,0 +1,62 @@
+<mvc:View
+   controllerName="data.capture.for.sap.controller.login"
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:mvc="sap.ui.core.mvc">
+
+   <App id="login_in">
+      <pages>
+         <Page showHeader="false">
+            <content>
+               <FlexBox 
+                  renderType="Bare"
+                  alignItems="Center"
+                  width="100%"
+                  height="100%">
+                  <items>
+                     <FlexBox
+                        renderType="Bare"
+                        class="loginFlexBox flexBox"
+                        wrap="Wrap"
+                        direction="Column"
+                        justifyContent="Center"
+                        alignItems="Center"
+                        width="24rem"
+                        height="20rem">
+                        <items>
+                        <Title text="{i18n>Login.title}" 
+                              class="loginIn"
+                              wrapping="true"/>
+                           <l:VerticalLayout >
+                              <Label text="{i18n>Login.user}:" class="loginLabel"/>
+                              <l:HorizontalLayout>
+                                 <Button icon="sap-icon://customer" enabled="false"/>
+                                 <Input width="16rem"/>
+                              </l:HorizontalLayout>
+                              <Label text="{i18n>Login.password}:" class="loginLabel"/>
+                              <l:HorizontalLayout>
+                                 <Button icon="sap-icon://key" enabled="false"/>
+                                 <Input type="Password" width="16rem"/>
+                              </l:HorizontalLayout>
+                           </l:VerticalLayout>
+                           <FlexBox renderType="Bare"
+                                    justifyContent="Center"
+                                    alignItems="Center">
+                              <Link text="{i18n>Login.link}" 
+                                    press=".onOpenDialog"/>
+                           </FlexBox>
+                           <Button class="loginButton"
+                                    type="Accept" 
+                                    text="{i18n>Login.enter}" 
+                                    width="12rem"
+                                    press=".onNavToLaunchpad"/>
+                        </items>
+                     </FlexBox>
+                  </items>
+               </FlexBox>
+            </content>
+         </Page>
+      </pages>
+   </App>
+
+</mvc:View>

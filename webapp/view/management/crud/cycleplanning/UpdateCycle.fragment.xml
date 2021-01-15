@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="updatecycle_dialog"
+		beforeClose="onCloseUpdate"
+		title="{plannedCycles>Unit}"
+		widthContent="400px">
+		
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm
+				layout="ResponsiveGridLayout"
+				editable="false"
+				adjustLabelSpan="false">
+				<f:content>
+					
+					<Label text="{i18n>UpdateCycle.simpleform.label1}" required="true"/>
+					<DatePicker id="updatecycle_startdate" 
+						class="sapUiSmallMarginBottom" 
+						valueFormat="yyyy-MM-dd" 
+						value="{plannedCycles>StartDate}"
+						displayFormat="long">
+						<layoutData>
+							<l:GridData span="XL6 L8 M8 S10"/>
+						</layoutData>
+					</DatePicker>
+					<Label text="{i18n>UpdateCycle.simpleform.label2}" required="true"/>
+					<DatePicker id="updatecycle_enddate" 
+						class="sapUiSmallMarginBottom" 
+						valueFormat="yyyy-MM-dd" 
+						value="{plannedCycles>EndDate}"
+						displayFormat="long">
+						<layoutData>
+							<l:GridData span="XL6 L8 M8 S10"/>
+						</layoutData>
+					</DatePicker>
+				</f:content>
+	
+			</f:SimpleForm>
+		</VBox>
+	
+	<beginButton>
+		<Button 
+			text="{i18n>Generic.update}" 
+			type="Accept" 
+			icon="sap-icon://edit"
+			press="onUpdate"/>
+	</beginButton>
+	
+	<endButton>
+		<Button 
+			text="{i18n>Generic.cancel}" 
+			type="Reject" 
+			icon="sap-icon://cancel"
+			press="onCloseUpdate"/>
+	</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

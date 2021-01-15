@@ -1,0 +1,24 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.launchpad.Capture"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+	
+       <GenericTile 
+        class="sapUiTinyMarginBegin sapUiTinyMarginTop" 
+        header="{i18n>Launchpad.capture.maintenance}"
+        press=".onNavToMaintenance">
+            <TileContent>
+                <ImageContent src="sap-icon://cancel-maintenance"/>
+            </TileContent>
+        </GenericTile>
+	
+       <GenericTile 
+        class="sapUiTinyMarginBegin sapUiTinyMarginTop" 
+        header="{i18n>Launchpad.capture.sampling}"
+        press=".onNavToSampling">
+            <TileContent>
+                <ImageContent src="sap-icon://key-user-settings"/>
+            </TileContent>
+        </GenericTile>
+        
+</mvc:View>

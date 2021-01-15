@@ -1,0 +1,29 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.datacapture.Sampling"
+	xmlns="sap.f"
+	xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<m:Page
+		title="{i18n>Sampling.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<FlexibleColumnLayout
+			id="sampling_flexibleColumnLayout"
+			backgroundDesign="Solid">
+			
+			<beginColumnPages>
+				<mvc:XMLView id="samplingmaster" viewName="data.capture.for.sap.view.datacapture.SamplingMaster"/>
+			</beginColumnPages>
+			
+			<midColumnPages>
+				<mvc:XMLView id="samplingdetail" viewName="data.capture.for.sap.view.datacapture.SamplingDetail"/>
+			</midColumnPages>
+			
+		</FlexibleColumnLayout>
+		
+	</m:Page>
+	
+</mvc:View>

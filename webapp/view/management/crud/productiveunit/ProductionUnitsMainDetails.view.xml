@@ -1,0 +1,84 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.crud.productiveunit.ProductionUnitsMainDetails"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page
+		title="{productionUnits>TypeName}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<f:SimpleForm
+			title="{i18n>ProductionUnitsMainDetails.simpleform.title}"
+			layout="ColumnLayout"
+			columnsM="2"
+			columnsL="2"
+			columnsXL="2">
+			<f:content>
+				<Label text="{i18n>ProductionUnitsMainDetails.simpleform.label1}"/> 		
+					<Text text="{productionUnits>TypeName}"/>
+				<Label text="{i18n>ProductionUnitsMainDetails.simpleform.label2}"/> 		
+					<Text text="{productionUnits>Type}"/>
+				<Label text="{i18n>ProductionUnitsMainDetails.simpleform.label3}"/> 		
+					<Text text="{productionUnits>Area} {productionUnits>SymbolArea}"/>
+				<Label text="{i18n>ProductionUnitsMainDetails.simpleform.label4}"/> 		
+					<Text text="{productionUnits>Product}"/>
+				<Label text="{i18n>ProductionUnitsMainDetails.simpleform.label5}"/> 		
+					<Text text="{productionUnits>Density} {productionUnits>SymbolDensity}"/>
+				<Label text="{i18n>ProductionUnitsMainDetails.simpleform.label6}"/> 		
+					<Text text="{productionUnits>Statu}"/>
+			</f:content>
+		</f:SimpleForm>
+		
+		<Table
+			id="productionunitsmaindetails_table"
+			growing="true"
+			class="sapUiResponsiveContentPadding"
+			items="{/EndProducts}">
+			
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="{i18n>ProductionUnitsMainDetails.table.title}"/>
+				</OverflowToolbar>
+			</headerToolbar>
+			
+			<columns>
+				<Column
+					hAlign="End"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>ProductionUnitsMainDetails.table.column1}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>ProductionUnitsMainDetails.table.column2}"/>
+				</Column>
+				<Column
+					hAlign="Center"
+					minScreenWidth="Small"
+					demandPopin="true">
+					<Text text="{i18n>ProductionUnitsMainDetails.table.column3}"/>
+				</Column>
+
+			</columns>
+			
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier title="{Subproduct}"/>
+						<Text text="{Unit}"/>
+						<Text text="{Symbol}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+			
+		</Table>
+		
+	</Page>
+	
+</mvc:View>

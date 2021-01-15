@@ -1,0 +1,16 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.datacapture.Maintenance"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core">
+	
+	<Page
+		title="{i18n>Maintenance.title}"
+		titleAlignment="Center"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		
+		
+	</Page>
+	
+</mvc:View>

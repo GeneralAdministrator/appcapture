@@ -1,0 +1,76 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="createproductiveunit_with_googlemap"
+		beforeOpen="loadModels"
+		title="{i18n>CreateProductionUnit.title}">
+		
+			<f:SimpleForm 
+				editable="true"
+				layout="ResponsiveGridLayout"
+				adjustLabelSpan="false"
+				labelSpanXL="5" emptySpanXL="0" columnsXL="0"
+				labelSpanL="5" emptySpanL="0" columnsL="0"
+				labelSpanM="5" emptySpanM="0" columnsM="0"
+				labelSpanS="12" emptySpanS="12">
+				
+				<f:content>
+					
+					<Label text="{i18n>CreateProductionUnit.form.label2}" required="true"/>
+					<Select id="createproductiveunitgoogle_unittype" items="{/UnitTypes}" change="changeUnitTypeModel">
+						<layoutData>
+							<l:GridData span="XL6 L6 M6 S8"/>
+						</layoutData>
+						<core:ListItem key="{IdType}" text="{Type}" additionalText="{IdType}"/>
+					</Select>
+					<Label text="{i18n>CreateProductionUnit.form.label3}" required="true"/>
+					<Select id="createproductiveunitgoogle_product" items="{/Products}">
+						<layoutData>
+							<l:GridData span="XL6 L6 M6 S8"/>
+						</layoutData>
+						<core:ListItem key="{IdProduct}" text="{Product}" additionalText="{IdForm}"/>
+					</Select>
+					<Label text="{i18n>CreateProductionUnit.form.label4}" required="true"/>
+					<Input id="createproductiveunitgoogle_unitname" placeholder="{i18n>CreateProductionUnit.form.placeholder4}">
+						<layoutData>
+							<l:GridData span="XL6 L6 M6 S8"/>
+						</layoutData>
+					</Input>
+					<Label text="{i18n>CreateProductionUnit.form.label7}" required="true"/>
+					<Input id="createproductiveunitgoogle_area" placeholder="{i18n>CreateProductionUnit.form.placeholder7}">
+						<layoutData>
+							<l:GridData span="L4 M4 S6"/>
+						</layoutData>
+					</Input>
+					<Input id="createproductiveunitgoogle_unitarea" enabled="false">
+						<layoutData>
+							<l:GridData span="L2 M2 S2"/>
+						</layoutData>
+					</Input>
+
+				</f:content>
+				
+			</f:SimpleForm>
+			
+		<beginButton>
+			<Button 
+				type="Accept"
+				text="{i18n>Generic.ok}" 
+				icon="sap-icon://save" 
+				press=".onSave"/>
+		</beginButton>
+		<endButton>
+			<Button 
+				type="Reject"
+				text="{i18n>Generic.cancel}" 
+				icon="sap-icon://cancel" 
+				press=".closeDialog"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

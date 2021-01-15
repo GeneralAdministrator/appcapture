@@ -1,0 +1,467 @@
+{
+	"base_url":"http://localhost:8081/http://localhost/codeigniter/index.php/",
+	"base_url_map":"https://maps.googleapis.com/maps/api/js?key=AIzaSyA8fnPVabM8720SlYCunYEENtINb9Y9bKE&libraries=places&libraries=geometry&libraries=drawing&callback=initMap",
+	
+    "_version": "1.21.0",
+    "sap.app": {
+    	"_version": "1.1.0",
+	    "id": "app",
+	     "type": "application",
+	     "i18n": "i18n/i18n.properties",
+	     "title": "{{appTitle}}",
+	     "description": "{{appDescription}}",
+	     "applicationVersion": {
+	        "version": "1.0.0"
+		 }
+    },
+    "sap.ui": {
+    	"_version": "1.3.0",
+    	"technology": "UI5",
+    	"deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+    	},
+		"supportedThemes": [
+			"sap_belize",
+			"sap_fiori_3",
+			"sap_fiori_3_dark"
+		]
+    },
+    "sap.ui5": {
+		"_version": "1.2.0",
+	      "rootView": {
+	          "viewName": "data.capture.for.sap.view.Login",
+	          "type": "XML",
+	          "async": true,
+	          "id": "login_in"
+		},
+	    "dependencies": {
+	    	"minUI5Version": "1.60",
+	        "libs": {
+	          "sap.m": {},
+	          "sap.f":{},
+	          "sap.uxap":{}
+	    }
+     },
+     
+		"contentDensities": {
+			"compact": false,
+			"cozy": false
+		},
+
+      "models": {
+
+        "i18n": {
+          "type": "sap.ui.model.resource.ResourceModel",
+          "settings": {
+            "bundleName": "data.capture.for.sap.i18n.i18n",
+            "supportedLocales": [""],
+            "fallbackLocale": ""
+		  }
+		},
+
+		"user":{
+			"type":"sap.ui.model.json.JSONModel",
+			"uri":"model/User.json"
+		},
+
+		"productionUnit":{
+			"type":"sap.ui.model.json.JSONModel",
+			"uri":"model/ProductionUnit.json"
+		},
+		"configNavigation":{
+			"type":"sap.ui.model.json.JSONModel",
+			"uri":"model/Config.json"
+		}
+      },
+
+      "resources": {
+        "css": [
+          {
+            "uri":"css/style.css"
+          }
+        ]
+      },
+
+      "routing": {
+        
+        "config": {
+          "routerClass": "sap.f.routing.Router",
+          "viewType": "XML",
+          "viewPath": "data.capture.for.sap.view",
+          "controlId": "login_in",
+          "controlAggregation": "pages",
+          "transition": "slide",
+          "bypassed": {
+            "target": "notFound"
+          },
+          "async": true
+        },
+
+        "routes": [
+          {
+            "pattern": "",
+            "name": "login",
+            "target": "login"
+          },
+
+          {
+            "pattern": "launchpad",
+            "name": "launchpad",
+            "target": ["launchpad"]
+          },
+          {
+          	"pattern":"config/listfarms",
+          	"name":"listFarms",
+          	"target":["listFarms"]
+          },
+          {
+          	"pattern":"config/listfarms/Farm",
+          	"name":"farm",
+          	"target":["farm"]
+          },
+          {
+          	"pattern":"config/unitytpes",
+          	"name":"unitTypes",
+          	"target":["unitTypes"]
+          },
+          {
+          	"pattern":"config/unitypes/{idtype}/{unittype}",
+          	"name":"unitType",
+          	"target":["unitType"]
+          },
+          {
+          	"pattern":"config/normalvalues",
+          	"name":"normalValues",
+          	"target":["normalValues"]
+          },
+          {
+          	"pattern":"config/seasons",
+          	"name":"seasons",
+          	"target":["seasons"]
+          },
+          {
+          	"pattern":"config/products",
+          	"name":"products",
+          	"target":["products"]
+          },
+          {
+          	"pattern":"config/produts/subproduts",
+          	"name":"subproducts",
+          	"target":["subproducts"]
+          },
+          {
+          	"pattern":"launchpad/productionUnitsMain",
+          	"name":"productionUnitsMain",
+          	"target":["productionUnitsMain"]
+          },
+          {
+          	"pattern":"launchpad/productionUnitsmain/productiveunit/{idunit}/{idproduct}/{index}",
+          	"name":"productionUnitsMainDetails",
+          	"target":["productionUnitsMainDetails"]
+          },
+    		{
+    			"pattern":"config/sowingdensity",
+    			"name":"sowingDensity",
+    			"target":["sowingDensity"]
+    		},
+    		{
+    			"pattern":"config/createsowingdensity",
+    			"name":"createSowingDensity",
+    			"target":["createSowingDensity"]
+    		},
+		  {
+			"pattern":"launchpad/productionsunits/createproductionunit",
+			"name":"productionUnitsGooglemap",
+			"target":["productionUnitsGooglemap"]
+		  },
+          {
+          	"pattern":"launchpad/productioncycles",
+          	"name":"productionCycles",
+          	"target":["productionCycles"]
+          },
+          {
+          	"pattern":"launchpad/productioncycles/{index}",
+          	"name":"cycleSummary",
+          	"target":["cycleSummary"]
+          },
+          {
+          	"pattern":"launchpad/cycleplanning",
+          	"name":"cyclePlanning",
+          	"target":["cyclePlanning"]
+          },
+          {
+          	"pattern":"launchpad/cycleplanning/createcycle",
+          	"name":"createCycle",
+          	"target":["createCycle"]
+          },
+          {
+          	"pattern":"launchpad/samplingplanning",
+          	"name":"samplingPlanning",
+          	"target":["samplingPlanning"]
+          },
+          {
+          	"pattern":"launchpad/materials",
+          	"name":"materials",
+          	"target":["materials"]
+          },
+          {
+          	"pattern":"launchpad/formsvariables",
+          	"name":"formsVariables",
+          	"target":["formsVariables"]
+          },
+          {
+          	"pattern":"launchpad/formsvariables/listvariables",
+          	"name":"listForms",
+          	"target":["listForms"]
+          },
+          {
+          	"pattern":"launchpad/users",
+          	"name":"users",
+          	"target":["users"]
+          },
+          {
+        	"pattern":"launchpad/maintenance",
+        	"name":"maintenance",
+        	"target":["maintenance"]
+          },
+          {
+          	"pattern":"launchpad/sampling",
+          	"name":"sampling",
+          	"layout":"OneColumn",
+          	"target":["samplingMaster","samplingDetail"]
+          },
+          {
+          	"pattern":"launchpad/sampling/detail/{index}",
+          	"name":"samplingDetail",
+          	"layout":"TwoColumnsMidExpanded",
+          	"target":["samplingMaster","samplingDetail"]
+          },
+          {
+          	"pattern":"launchpad/sampling/detail/{IdUnit}/{IdCycle}",
+          	"name":"summary",
+          	"layout":"EndColumnFullScreen",
+          	"target":"summary"
+          }
+        ],
+
+        "targets": {
+
+          "login": {
+            "viewName": "Login",
+            "viewLevel": 1
+          },
+
+          "notFound": {
+            "viewName": "NotFound",
+            "transition": "show"
+          },
+          
+          "parent": {
+          	"viewName":"Parent",
+          	"viewLevel":2
+          },
+
+          "launchpad": {
+          	"parent":"parent",
+            "viewName": "Launchpad",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "listFarms":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"ListFarms",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "farm":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"Farm",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "unitTypes":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"UnitTypes",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "unitType":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"UnitTypeDetails",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages",
+          	"transition":"fade"
+          },
+          "normalValues":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"NormalValues",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "seasons":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"Seasons",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "products":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"Products",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "subproducts":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.config",
+          	"viewName":"CreateSubproducts",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "productionUnitsMain": {
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"ProductionUnitsMain",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "productionUnitsMainDetails":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management.crud.productiveunit",
+          	"viewName":"ProductionUnitsMainDetails",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+		  "sowingDensity":{
+		  	"parent":"parent",
+		  	"viewPath":"data.capture.for.sap.view.config",
+		  	"viewName":"SowingDensity",
+		  	"controlId":"parent_content",
+		  	"controlAggregation":"pages"
+		  },
+		  "createSowingDensity":{
+		  	"parent":"parent",
+		  	"viewPath":"data.capture.for.sap.view.config",
+		  	"viewName":"CreateSowingDensity",
+		  	"controlId":"parent_content",
+		  	"controlAggregation":"pages"
+		  },
+		  "productionUnitsGooglemap":{
+				"parent":"parent",
+				"viewPath":"data.capture.for.sap.view.management.crud.productiveunit",
+				"viewName":"GoogleMap",
+				"controlId":"parent_content",
+				"controlAggregation":"pages"
+		   },
+          "productionCycles":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"ProductionCycles",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "cycleSummary":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management.crud.productivecycle",
+          	"viewName":"CycleSummary",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "cyclePlanning":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"CyclePlanning",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "createCycle": {
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management.crud.cycleplanning",
+          	"viewName":"CreateCycle",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "samplingPlanning":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"SamplingPlanning",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "materials":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"Materials",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "formsVariables":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"FormsVariables",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "listForms": {
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"ListForms",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "users":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.management",
+          	"viewName":"Users",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+          "maintenance":{
+          	"parent":"parent",
+          	"viewPath":"data.capture.for.sap.view.datacapture",
+          	"viewName":"Maintenance",
+          	"controlId":"parent_content",
+          	"controlAggregation":"pages"
+          },
+		  "sampling":{
+			"parent":"parent",
+			"viewPath":"data.capture.for.sap.view.datacapture",
+			"viewName":"Sampling",
+			"controlId":"parent_content",
+			"controlAggregation":"pages"
+			},
+			"samplingMaster":{
+				"parent":"sampling",
+				"viewPath":"data.capture.for.sap.view.datacapture",
+				"viewName":"SamplingMaster",
+				"controlId":"sampling_flexibleColumnLayout",
+				"controlAggregation":"beginColumnPages"
+			},
+			"samplingDetail":{
+				"parent":"sampling",
+				"viewPath":"data.capture.for.sap.view.datacapture",
+				"viewName":"SamplingDetail",
+				"controlId":"sampling_flexibleColumnLayout",
+				"controlAggregation":"midColumnPages"
+			},
+			"summary":{
+				"parent":"sampling",
+				"viewPath":"data.capture.for.sap.view.datacapture",
+				"viewName":"Summary",
+				"controlId":"sampling_flexibleColumnLayout",
+				"controlAggregation":"endColumnPages"
+			}
+        }
+
+      }
+
+    }
+  }

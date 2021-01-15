@@ -1,0 +1,55 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="closecycle_dialog"
+		title="{i18n>CloseCycle.dialog.title}">
+		
+		<f:SimpleForm
+			editable="false"
+			layout="ResponsiveGridLayout"
+			adjustLabelSpan="false">
+			<f:content>
+				<Label text="{i18n>CloseCycle.simpleform.label1}" required="true"/>
+				<Input id="closecycle_product" enabled="false">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CloseCycle.simpleform.label2}" required="true"/>
+				<Input id="closecycle_cantproduct" type="NUmber" placeholder="{i18n>CloseCycle.placeholder1}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>CloseCycle.simpleform.label3}" required="true"/>
+				<Input id="closecycle_symbol" enabled="false">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				type="Emphasized" 
+				icon="sap-icon://save" 
+				text="{i18n>Generic.ok}"
+				press="onCloseCycle"/>
+		</beginButton>
+		
+		<endButton>
+			<Button 
+				type="Reject" 
+				icon="sap-icon://cancel" 
+				text="{i18n>Generic.cancel}" 
+				press="onCloseDialogClosecycle"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

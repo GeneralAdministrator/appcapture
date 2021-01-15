@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		title="{normalValues>Variable}  ({normalValues>Unit})"
+		id="updatenormalvalue_dialog">
+		
+		<f:SimpleForm
+			layout="ResponsiveGridLayout"
+			editable="false">
+			<f:content>
+				<Label text="{i18n>UpdateNormalValue.simpleform.label1}" required="true"/>
+				<Input id="updatenormalvalue_min" value="{normalValues>Min}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>UpdateNormalValue.simpleform.label2}" required="true"/>
+				<Input id="updatenormalvalue_max" value="{normalValues>Max}">
+					<layoutData>
+						<l:GridData span="XL6 L8 M8 S10"/>
+					</layoutData>
+				</Input>
+			</f:content>
+		</f:SimpleForm>
+		
+		<beginButton>
+			<Button 
+				text="{i18n>Generic.ok}" 
+				type="Emphasized"
+				icon="sap-icon://save" 
+				press=".onSave"/>
+		</beginButton>
+		
+		<endButton>
+			<Button 
+				text="{i18n>Generic.cancel}"
+				type="Reject"
+				icon="sap-icon://cancel" 
+				press=".onClose"/>
+		</endButton>
+		
+	</Dialog>
+	
+</core:FragmentDefinition>

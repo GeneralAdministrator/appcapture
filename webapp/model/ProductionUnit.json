@@ -1,0 +1,20 @@
+{
+    "ProductionUnit": [
+        {
+            "Statu":"Activo",
+            "Key":"Activo"
+        },
+        {
+            "Statu":"Mantenimiento",
+            "Key":"Mantenimiento"
+        },
+        {
+            "Statu":"Disponible",
+            "Key":"Disponible"
+        },
+        {
+            "Statu":"Inactivo",
+            "Key":"Inactivo"
+        }
+    ]
+}

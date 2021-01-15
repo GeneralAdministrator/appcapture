@@ -1,0 +1,106 @@
+<mvc:View
+	controllerName="data.capture.for.sap.controller.management.Forms"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:dnd="sap.ui.core.dnd"
+	xmlns:mvc="sap.ui.core.mvc"
+	height="100%">
+	
+	<Table
+		id="table"
+		class="sapUiResponsiveMargin"
+		mode="SingleSelectMaster"
+		growing="true"
+		beforeOpenContextMenu=".onBeforeOpenContextMenu"
+		items="{
+			path:'/Variables',
+			filters: {
+				path: 'Rank', 
+				operator: 'GT', 
+				value1: '0'
+			},
+			sorter: {
+				path: 'Rank', 
+				descending: true
+			}
+		}"
+		width="auto">
+		
+		<contextMenu>
+			<Menu>
+				<MenuItem 
+					text="{i18n>Forms.table.contextmenu.moveto}"
+					press=".moveToVariables"/>
+				<MenuItem
+					text="{i18n>Forms.table.contextmenu.moveup}"
+					press=".moveUp"/>
+				<MenuItem
+					text="{i18n>Forms.table.contextmenu.movedown}"
+					press=".moveDown"/>
+			</Menu>
+		</contextMenu>
+		
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="{i18n>Forms.table.title}"/>
+				<ToolbarSpacer/>
+				<Button
+					icon="sap-icon://navigation-up-arrow"
+					tooltip="{i18n>Forms.table.contextmenu.moveup}"
+					press=".moveUp"/>
+				<Button
+					icon="sap-icon://navigation-down-arrow"
+					tooltip="{i18n>Forms.table.contextmenu.movedown}"
+					press=".moveDown"/>
+				<Button 
+					type="Accept"
+					icon="sap-icon://save" 
+					tooltip="{i18n>Forms.table.tooltip.save}"
+					press=".openCreateForm"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		
+		<columns>
+			<Column
+				hAlign="End"
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="12rem">
+				<Text text="{i18n>Forms.table.column1}"/>
+			</Column>
+			<Column
+				hAlign="Center"
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>Forms.table.column2}"/>
+			</Column>
+		</columns>
+		
+		<dragDropConfig>
+			<dnd:DragInfo
+				groupName="formularios"
+				sourceAggregation="items"/>
+			<dnd:DropInfo
+				groupName="variables"
+				targetAggregation="items"
+				dropPosition="Between"
+				drop=".onDropForms"/>
+			<dnd:DragDropInfo
+				sourceAggregation="items"
+				targetAggregation="items"
+				dropPosition="Between"
+				drop=".onDropForms"/>
+		</dragDropConfig>
+		
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier title="{Variable}"/>
+					<Text text="{Unit}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+		 
+	</Table>
+
+</mvc:View>
