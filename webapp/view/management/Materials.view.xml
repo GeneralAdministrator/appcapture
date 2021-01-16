@@ -13,7 +13,6 @@
 			id="materials_table"
 			sticky="ColumnHeaders"
 			growing="true"
-			growingThreshold="50"
 			items="{/d/results}"
 			class="sapUiResponsiveContentPadding">
 			
