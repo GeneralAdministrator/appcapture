@@ -12,6 +12,8 @@
 		<Table
 			id="materials_table"
 			items="{/d/results}"
+			sticky="ColumnHeaders"
+			growing="true"
 			class="sapUiResponsiveContentPadding">
 			
 			<headerToolbar>
